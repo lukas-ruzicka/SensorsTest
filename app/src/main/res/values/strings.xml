@@ -1,3 +1,39 @@
 <resources>
+
     <string name="app_name">Sensors Test</string>
+
+    <string name="accelerometer">Akcelerometr</string>
+    <string name="ambient_temperature">Teplota vzduchu v místnosti</string>
+    <string name="gravity">Gravitační zrychlení</string>
+    <string name="gyroscope">Gyroskop</string>
+    <string name="light">Osvětlení</string>
+    <string name="linear_acceleration">Zrychlení bez vlivu gravitace</string>
+    <string name="magnetic_field">Geomagnetické pole</string>
+    <string name="motion_detect">Detekce pohybu</string>
+    <string name="orientation">Poloha rotace zařízení (z více senzorů)</string>
+    <string name="pressure">Atmosférický tlak</string>
+    <string name="proximity">Vzdálenost objektu od displeje</string>
+    <string name="relative_humidity">Vlhkost vzduchu</string>
+    <string name="rotation_vector">Orientace zařízení ve třech vektorech</string>
+    <string name="step_counter">Počítač kroků</string>
+    <string name="step_detector">Detektor kroků</string>
+    <string name="temperature">Teplota</string>
+
+    <string name="unavailable">Nedostupný: </string>
+
+    <string name="x_value">X: </string>
+    <string name="y_value">Y: </string>
+    <string name="z_value">Z: </string>
+    <string name="temp">Hodnota (ve stupních celsia): </string>
+    <string name="light_text">Hodnota (v luxech): </string>
+    <string name="prox">Hodnota (v cm): </string>
+    <string name="press">Hodnota (v hPa): </string>
+    <string name="motion">Hodnota (1.0 = v pohybu): </string>
+    <string name="humidity">Hodnota (v procentech): </string>
+    <string name="step_count">Počet kroků: </string>
+    <string name="step_detect">Hodnota: </string>
+    <string name="azimuth">Azimut (O = N): </string>
+    <string name="pitch">Rotace kolem X (pitch): </string>
+    <string name="roll">Rotace kolem Y (roll): </string>
+
 </resources>
