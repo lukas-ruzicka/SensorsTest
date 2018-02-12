@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private Map<Integer,Sensor> availableSensors = new HashMap<>();
     private Map<Sensor,TextView[]> sensorViews = new HashMap<>();
 
-    private long lastUpdate;
+    private Map<Sensor,Long> lastUpdate = new HashMap<>();
     private static final int UPDATE_FREQ = 500;
 
     @Override
@@ -208,9 +208,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     protected void onResume(){
         super.onResume();
 
-        for (Sensor sensor: availableSensors.values())
+        for (Sensor sensor: availableSensors.values()){
             sensorManager.registerListener(this,sensor,SensorManager.SENSOR_DELAY_UI);
-        lastUpdate = System.currentTimeMillis();
+            lastUpdate.put(sensor,System.currentTimeMillis());
+        }
     }
 
     @Override
@@ -224,8 +225,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         Sensor sensor = availableSensors.get(event.sensor.getType());
 
         long currentTime = System.currentTimeMillis();
-        if(currentTime - lastUpdate > UPDATE_FREQ){
-            lastUpdate = System.currentTimeMillis();
+        if(currentTime - lastUpdate.get(sensor) > UPDATE_FREQ){
+            lastUpdate.put(sensor,System.currentTimeMillis());
             TextView[] views = sensorViews.get(sensor);
             for (int i = 0; i < views.length; i++)
                 views[i].setText(String.valueOf(event.values[i]));
@@ -266,6 +267,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         value.setTypeface(Typeface.SANS_SERIF);
         value.setTextSize(14);
         value.setTextColor(ContextCompat.getColor(MainActivity.this,R.color.grey));
+        value.setText(String.valueOf(0.0f));
         return value;
     }
 
